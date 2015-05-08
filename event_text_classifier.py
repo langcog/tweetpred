@@ -36,7 +36,7 @@ def tweet_reader(src_filename='../alwc-tweets-description.csv'):
 
 def get_sensible_classes(reader=mlb_reader, count_threshold=50):
     counts = defaultdict(int)
-    for label, _ in reader():
+    for label, _, _ in reader():
         counts[label] += 1
     return set([label for label, count in counts.items() if count >= count_threshold])
 
